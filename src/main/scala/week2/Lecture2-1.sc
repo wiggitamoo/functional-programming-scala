@@ -39,4 +39,19 @@ sumFactorials(1, 3) == sumFactorials2(1, 3)
 (x: Int) => x * x * x
 
 def sumInts3(a: Int, b: Int) = sum(x => x, a, b)
+def sumCubes3(a: Int, b: Int) = sum(x => x  * x * x, a, b)
+
 sumInts(1, 3) == sumInts3(1, 3)
+sumCubes(1, 3) == sumCubes3(1, 3)
+
+// Exercise: Tail recursive sum
+def sum2(f: Int => Int)(a: Int, b: Int): Int = {
+  def loop(a: Int, acc: Int): Int = {
+    if (a > b) acc
+    else loop(a + 1, acc + f(a))
+  }
+  loop(a, 0)
+}
+
+sumInts(1, 3) == sum2(x=>x)(1,3)
+sumCubes(1, 3) == sum2(x=>x*x*x)(1,3)
