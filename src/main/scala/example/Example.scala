@@ -7,5 +7,4 @@ package example
 // call extends App because this will be our main application.
 object Example extends App {
   println("Hello World")
-  Test1
 }
